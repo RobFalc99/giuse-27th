@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Il Declino di Giuseppe - 27 Anni</title>
     
-    <!-- React & ReactDOM (Development Version for simplicity) -->
+    <!-- React & ReactDOM (Development Version) -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     
-    <!-- Babel (to parse JSX in browser) -->
+    <!-- Babel -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
     <!-- Tailwind CSS -->
@@ -52,14 +52,12 @@
           -webkit-text-fill-color: transparent;
         }
         
-        /* Hide scrollbar for Chrome, Safari and Opera */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
-        /* Hide scrollbar for IE, Edge and Firefox */
         .no-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
@@ -85,7 +83,6 @@
         const PartyPopper = (props) => (<IconBase {...props}><path d="M5.8 11.3 2 22l10.7-3.79"/><path d="M4 3h.01"/><path d="M22 8h.01"/><path d="M15 2h.01"/><path d="M22 20h.01"/><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12v0c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"/><path d="m22 13-.5.17a2.9 2.9 0 0 0-1.96 3.12v0c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L15.5 21"/><path d="m13 8-.5.17a2.9 2.9 0 0 0-1.96 3.12v0c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L6.5 16"/></IconBase>);
         const Copy = (props) => (<IconBase {...props}><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></IconBase>);
 
-        // Hook per l'animazione allo scroll (Fade In)
         const useOnScreen = (options) => {
             const ref = useRef(null);
             const [isVisible, setIsVisible] = useState(false);
@@ -109,7 +106,6 @@
             return [ref, isVisible];
         };
 
-        // Componente Sezione Animata
         const RevealSection = ({ children, className = "" }) => {
             const [ref, isVisible] = useOnScreen({ threshold: 0.15 });
 
@@ -141,7 +137,6 @@
                             setTimeout(() => setCopied(false), 2000);
                         });
                 } else {
-                    // Fallback manuale
                     try {
                         const textArea = document.createElement("textarea");
                         textArea.value = textToCopy;
@@ -270,8 +265,8 @@
                                 </div>
                                 <div className="bg-neutral-900/80 p-6 rounded-xl border border-amber-500/20">
                                     <Wine className="w-8 h-8 text-amber-400 mx-auto mb-4" />
-                                    <h4 className="font-elegant text-xl mb-2">Formula Illimitata</h4>
-                                    <p className="text-sm text-neutral-400">Open Aperitivo. Prendete ciò che volete, non siate timidi. Offre il festeggiato (speriamo).</p>
+                                    <h4 className="font-elegant text-xl mb-2">Drink & Food</h4>
+                                    <p className="text-sm text-neutral-400">Un drink a scelta e un aperitivo a cura del locale... da leccarsi i baffi.</p>
                                 </div>
                             </div>
                         </RevealSection>
